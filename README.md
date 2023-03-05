@@ -19,3 +19,11 @@ Formula 1 Paddock Club: the new companion app for F1 fans
 - [ ] Teams Overview
 
 # App Colors
+
+`#d81e5b` > Primary Color ![#d81e5b](https://via.placeholder.com/15/d81e5b/d81e5b.png)
+
+`#d81e5b` > Secondary Color ![#d81e5b](https://via.placeholder.com/15/d81e5b/d81e5b.png)
+
+# Fonts
+
+# Assets 
