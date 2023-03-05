@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:another_flutter_splash_screen/another_flutter_splash_screen.dart';
 import 'package:paddock_club/pages/calendar_page.dart';
 
 void main() {
@@ -16,7 +17,13 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.red,
       ),
-      home: const CalendarPage(),
+      home: const FlutterSplashScreen.gif(
+          backgroundColor: Color(0xdbeffb), 
+          gifPath: 'assets/splash.gif',
+          defaultNextScreen: CalendarPage(),
+          duration: const Duration(seconds: 3),
+          },
+        ),
     );
   }
 }
