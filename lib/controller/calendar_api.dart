@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:paddock_club/common/urls.dart';
 import 'package:paddock_club/model/calendar_model.dart';
+import 'package:paddock_club/model/race_time_model.dart';
 
 Future<List<RaceScheduleModel>> getRaceSchedule(int year) async {
   var response = await http.get(Uri.parse('$calendarApi$year.json'));
@@ -12,6 +13,22 @@ Future<List<RaceScheduleModel>> getRaceSchedule(int year) async {
   responseJson = responseJson["MRData"]["RaceTable"]["Races"];
 
   for (var race in responseJson) {
+    RaceTimeModel? sessionTime;
+
+
+    sessionTime = RaceTimeModel(
+      practice1:
+          '${race["FirstPractice"]["date"]} - ${race["FirstPractice"]["time"]}',
+      practice2:
+          '${race["SecondPractice"]["date"]} - ${race["SecondPractice"]["time"]}',
+      practice3:
+          race.containsKey("ThirdPractice") ? '${race["ThirdPractice"]["date"]} - ${race["ThirdPractice"]["time"]}' : "N/D",
+      qualify: '${race["Qualifying"]["date"]} - ${race["Qualifying"]["time"]}',
+      sprint: race.containsKey("Sprint")
+          ? '${race["Sprint"]["date"]} - ${race["Sprint"]["time"]}'
+          : null,
+    );
+
     races.add(
       RaceScheduleModel(
         raceName: race["raceName"],
@@ -21,6 +38,7 @@ Future<List<RaceScheduleModel>> getRaceSchedule(int year) async {
         round: race["round"],
         circuit: race["Circuit"]["circuitId"],
         haveSprint: race.containsKey("Sprint"),
+        sessionTimes: sessionTime,
       ),
     );
   }
@@ -60,6 +78,3 @@ Future<RaceScheduleModel> getNextRace(int year) async {
   }
   return races;
 }
-
-
-

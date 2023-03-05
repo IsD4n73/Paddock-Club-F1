@@ -15,6 +15,20 @@ class SessionSelectPage extends StatefulWidget {
 }
 
 class _SessionSelectPageState extends State<SessionSelectPage> {
+  late DateTime today;
+  late String todayStr;
+
+  @override
+  void initState() {
+    super.initState();
+
+    setState(() {
+      today = DateTime.now();
+      todayStr =
+          "${today.year}-${today.month}-${today.day}".replaceAll("0", "");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,35 +81,56 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
               children: [
                 SessionListTile(
                   title: "Prove Libere 1",
-                  subTitle: "subTitle",
+                  subTitle: widget.race.sessionTimes!.practice1,
                   type: 0,
+                  isToday: todayStr ==
+                      widget.race.sessionTimes!.practice1
+                          .substring(0, 10)
+                          .replaceAll("0", ""),
                 ),
                 SessionListTile(
-                  title: "Prove Libere 1",
-                  subTitle: "subTitle",
+                  title: "Prove Libere 2",
+                  subTitle: widget.race.sessionTimes!.practice2,
                   type: 0,
+                  isToday: todayStr ==
+                      widget.race.sessionTimes!.practice2
+                          .substring(0, 10)
+                          .replaceAll("0", ""),
                 ),
                 SessionListTile(
-                  title: "Prove Libere 1",
-                  subTitle: "subTitle",
+                  title: "Prove Libere 3",
+                  subTitle: widget.race.sessionTimes!.practice3,
                   type: 0,
+                  isToday: todayStr ==
+                      widget.race.sessionTimes!.practice3
+                          .substring(0, 10)
+                          .replaceAll("0", ""),
                 ),
                 SessionListTile(
                   title: "Qualifiche",
-                  subTitle: "subTitle",
+                  subTitle: widget.race.sessionTimes!.qualify,
                   type: 1,
+                  isToday: todayStr ==
+                      widget.race.sessionTimes!.qualify
+                          .substring(0, 10)
+                          .replaceAll("0", ""),
                 ),
                 widget.race.haveSprint ?? false
                     ? SessionListTile(
                         title: "Sprint",
-                        subTitle: "subTitle",
+                        subTitle: widget.race.sessionTimes!.sprint ?? "N/D",
                         type: 2,
+                        isToday: todayStr ==
+                            widget.race.sessionTimes!.sprint!
+                                .substring(0, 10)
+                                .replaceAll("0", ""),
                       )
                     : const SizedBox.shrink(),
                 SessionListTile(
                   title: "Gara",
-                  subTitle: "subTitle",
+                  subTitle: "${widget.race.date} - ${widget.race.time}",
                   type: 3,
+                  isToday: todayStr == widget.race.date.replaceAll("0", ""),
                 ),
               ],
             )

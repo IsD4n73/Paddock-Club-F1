@@ -1,3 +1,5 @@
+import 'package:paddock_club/model/race_time_model.dart';
+
 class RaceScheduleModel {
   String raceName;
   String date;
@@ -6,6 +8,7 @@ class RaceScheduleModel {
   String round;
   String circuit;
   bool? haveSprint;
+  RaceTimeModel? sessionTimes;
 
   RaceScheduleModel({
     required this.raceName,
@@ -15,5 +18,6 @@ class RaceScheduleModel {
     required this.round,
     required this.circuit,
     this.haveSprint,
+    this.sessionTimes,
   });
 }
