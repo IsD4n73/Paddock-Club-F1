@@ -18,8 +18,9 @@ Formula 1 Paddock Club: the new companion app for F1 fans
 - [ ] Constructors Standing
 - [ ] Teams Overview
 
-# App Colors
+---
 
+# App Colors
 `#1E1E23` > Primary ![#1E1E23](https://via.placeholder.com/15/1E1E23/1E1E23.png)
 
 `#2F303B` > Secondary ![#2F303B](https://via.placeholder.com/15/2F303B/2F303B.png)
@@ -29,5 +30,12 @@ Formula 1 Paddock Club: the new companion app for F1 fans
 `#6E3C51` > Details Secondary ![#6E3C51](https://via.placeholder.com/15/6E3C51/6E3C51.png)
 
 # Fonts
+Formula1 Display Bold
+> https://blogfonts.com/formula1-display-bold.font
 
-# Assets 
+
+# Assets
+Teams Logos, Teams Colors
+> https://www.f1assets.com/
+
+Logo
