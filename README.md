@@ -55,3 +55,6 @@ http: ^0.13.5
 
 ### API
 > https://ergast.com/mrd/
+
+### Supported Languages
+> 🇮🇹 Italiano
