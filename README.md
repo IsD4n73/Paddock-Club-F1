@@ -50,6 +50,7 @@ Logo
 ### Dependency
 ```yaml
 country_icons: ^2.0.2
+another_flutter_splash_screen: ^1.1.4
 http: ^0.13.5
 ```
 
