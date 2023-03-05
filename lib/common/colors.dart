@@ -8,3 +8,6 @@ class AppColor {
   static const detailsSecondary = Color.fromARGB(255, 110, 60, 81);
   
 }
+
+class TeamColor {
+
