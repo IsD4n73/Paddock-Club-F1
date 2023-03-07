@@ -9,5 +9,5 @@ class AppColor {
   
 }
 
-class TeamColor {
+class TeamColor {} 
 
