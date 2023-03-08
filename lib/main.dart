@@ -17,12 +17,13 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.red,
       ),
-      home: const FlutterSplashScreen.gif(
-          backgroundColor: Color(0xdbeffb), 
+      home: FlutterSplashScreen.gif(
+          backgroundColor: const Color(0xdbeffb),
+          gifHeight: 300, 
+          gifWidth: 400, 
           gifPath: 'assets/splash.gif',
-          defaultNextScreen: CalendarPage(),
+          defaultNextScreen: const CalendarPage(),
           duration: const Duration(seconds: 3),
-          },
         ),
     );
   }
