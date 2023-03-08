@@ -9,5 +9,16 @@ class AppColor {
   
 }
 
-class TeamColor {} 
+class TeamColor {
+  static const redbull = Color(0x0600EF);
+  static const mercedes = Color(0x00D2BE);
+  static const mclaren = Color(0xFF8000);
+  static const ferrari = Color(0xDC0000);
+  static const alpine = Color(0x0090FF);
+  static const haas = Color(0xFFFFFF);
+  static const alfaRomeo = Color(0x900000);
+  static const williams = Color(0x005AFF);
+  static const alphaTauri = Color(0x2B4562);
+  static const astonMartin = Color(0x006F62);
+} 
 
