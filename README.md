@@ -11,13 +11,13 @@ Formula 1 Paddock Club: the new companion app for F1 fans
 # TO-DO
 
 - [ ] Splash Screen
-- [ ] Practice Results
 - [ ] Qualifying Results
 - [ ] Sprint Results
 - [ ] Race Results
 - [ ] Drivers Standing
 - [ ] Constructors Standing
 - [ ] Teams Overview
+- [ ] Bottom Navigation Bar
 
 ---
 
