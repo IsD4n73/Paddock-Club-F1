@@ -16,7 +16,6 @@ Formula 1 Paddock Club: the new companion app for F1 fans with a lot of features
 - [ ] Drivers Standing
 - [ ] Constructors Standing
 - [ ] Teams Overview
-- [ ] Bottom Navigation Bar
 
 ---
 

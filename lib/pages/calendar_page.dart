@@ -1,9 +1,11 @@
 import "package:flutter/material.dart";
+import "package:paddock_club/common/bottom_bar.dart";
 import "package:paddock_club/common/colors.dart";
 import "package:paddock_club/controller/calendar_api.dart";
 import "package:paddock_club/model/calendar_model.dart";
 import "package:paddock_club/widget/calendar_list.dart";
 import "package:paddock_club/widget/next_race.dart";
+import "package:salomon_bottom_bar/salomon_bottom_bar.dart";
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
@@ -52,11 +54,12 @@ class _CalendarPageState extends State<CalendarPage> {
       appBar: AppBar(
         backgroundColor: AppColor.background,
         title: const Text(
-          "F1 Calendar",
+          "Calendario",
           style: TextStyle(fontFamily: "F1Bold"),
         ),
         centerTitle: true,
       ),
+      bottomNavigationBar: getBottomBar(0, context),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
