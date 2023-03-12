@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:paddock_club/pages/qualy_result.dart";
 import "package:paddock_club/pages/race_result.dart";
+import "package:paddock_club/pages/sprint_result.dart";
 import "package:paddock_club/widget/session_tile.dart";
 
 import "../common/colors.dart";
@@ -125,7 +126,8 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => QualyResultPage(widget.race.round)),
+                          builder: (context) =>
+                              QualyResultPage(widget.race.round)),
                     );
                   },
                 ),
@@ -138,7 +140,14 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                             widget.race.sessionTimes!.sprint!
                                 .substring(0, 10)
                                 .replaceAll("0", ""),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SprintRsultsPage(widget.race.round)),
+                          );
+                        },
                       )
                     : const SizedBox.shrink(),
                 SessionListTile(
@@ -150,7 +159,8 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => RaceRsultsPage(widget.race.round)),
+                          builder: (context) =>
+                              RaceRsultsPage(widget.race.round)),
                     );
                   },
                 ),

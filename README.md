@@ -7,13 +7,12 @@ Formula 1 Paddock Club: the new companion app for F1 fans with a lot of features
 - Next Race
 - Week-end Sessions (Practice, Race, Sprint, Qualifying) 
 - Today Event
+- Qualifying Results
+- Sprint Results
+- Race Results
 
 # TO-DO
 
-- [ ] Splash Screen
-- [ ] Qualifying Results
-- [ ] Sprint Results
-- [ ] Race Results
 - [ ] Drivers Standing
 - [ ] Constructors Standing
 - [ ] Teams Overview
