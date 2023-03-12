@@ -45,3 +45,36 @@ Future<List<RaceRsultModel>> getRaceResult(String idRace) async {
 
   return results;
 }
+
+Future<List<QualyRsultModel>> getQualyRsult(String idRace) async {
+  var response = await http.get(
+      Uri.parse('$calendarApi${DateTime.now().year}/$idRace/qualifying.json'));
+
+  var responseJson;
+  List<QualyRsultModel> results = [];
+
+  try {
+    responseJson = jsonDecode(response.body);
+    responseJson =
+        responseJson["MRData"]["RaceTable"]["Races"][0]["QualifyingResults"];
+  } on RangeError {
+    return results;
+  }
+
+  for (var race in responseJson) {
+    QualyRsultModel driver;
+
+    driver = QualyRsultModel(
+      position: race["position"],
+      constructorName: race["Constructor"]["name"],
+      driverCode: race["Driver"]["code"],
+      q1: race["Q1"],
+      q2: race.containsKey("Q2") ? race["Q2"] : "N/C",
+      q3: race.containsKey("Q3") ? race["Q3"] : "N/C",
+    );
+
+    results.add(driver);
+  }
+
+  return results;
+}
