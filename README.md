@@ -46,6 +46,10 @@ Logo
 | ------------- | ------------- |
 | ![Calendar](screenshot/Calendar.jpg)  | ![Session Select](screenshot/Session-Select.jpg)  |
 
+| Session Result  | Team Overview |
+| ------------- | ------------- |
+| ![Result](screenshot/Result.jpg)  | ![Teams](screenshot/Teams.jpg)  |
+
 # DEV
 ### Dependency
 ```yaml
