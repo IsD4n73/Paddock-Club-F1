@@ -10,15 +10,15 @@ class AppColor {
 }
 
 class TeamColor {
-  static const redbull = Color(0x0600EF);
-  static const mercedes = Color(0x00D2BE);
-  static const mclaren = Color(0xFF8000);
-  static const ferrari = Color(0xDC0000);
-  static const alpine = Color(0x0090FF);
-  static const haas = Color(0xFFFFFF);
-  static const alfaRomeo = Color(0x900000);
-  static const williams = Color(0x005AFF);
-  static const alphaTauri = Color(0x2B4562);
-  static const astonMartin = Color(0x006F62);
+  static const redbull = Color.fromARGB(255, 8, 0, 239);
+  static const mercedes = Color.fromARGB(255, 0, 210, 189);
+  static const mclaren = Color.fromARGB(255, 255, 128, 0);
+  static const ferrari = Color.fromARGB(255, 220, 0, 0);
+  static const alpine = Color.fromARGB(255, 0, 145, 255);
+  static const haas = Color.fromARGB(255, 255, 255, 255);
+  static const alfaRomeo = Color.fromARGB(255, 144, 0, 0);
+  static const williams = Color.fromARGB(255, 0, 89, 255);
+  static const alphaTauri = Color.fromARGB(255, 43, 69, 98);
+  static const astonMartin = Color.fromARGB(255, 0, 111, 98);
 } 
 

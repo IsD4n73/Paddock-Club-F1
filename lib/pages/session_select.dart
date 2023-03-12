@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:paddock_club/pages/race_result.dart";
 import "package:paddock_club/widget/session_tile.dart";
 
 import "../common/colors.dart";
@@ -101,15 +102,16 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                 ),
                 widget.race.haveSprint == false
                     ? SessionListTile(
-                  title: "Prove Libere 3",
-                  subTitle: widget.race.sessionTimes!.practice3,
-                  type: 0,
-                  nextPage: false,
-                  isToday: todayStr ==
-                      widget.race.sessionTimes!.practice3
-                          .substring(0, 10)
-                          .replaceAll("0", ""),
-                ) : const SizedBox.shrink(),
+                        title: "Prove Libere 3",
+                        subTitle: widget.race.sessionTimes!.practice3,
+                        type: 0,
+                        nextPage: false,
+                        isToday: todayStr ==
+                            widget.race.sessionTimes!.practice3
+                                .substring(0, 10)
+                                .replaceAll("0", ""),
+                      )
+                    : const SizedBox.shrink(),
                 SessionListTile(
                   title: "Qualifiche",
                   subTitle: widget.race.sessionTimes!.qualify,
@@ -118,6 +120,7 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                       widget.race.sessionTimes!.qualify
                           .substring(0, 10)
                           .replaceAll("0", ""),
+                  onTap: () {},
                 ),
                 widget.race.haveSprint ?? false
                     ? SessionListTile(
@@ -128,6 +131,7 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                             widget.race.sessionTimes!.sprint!
                                 .substring(0, 10)
                                 .replaceAll("0", ""),
+                        onTap: () {},
                       )
                     : const SizedBox.shrink(),
                 SessionListTile(
@@ -135,6 +139,13 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                   subTitle: "${widget.race.date} - ${widget.race.time}",
                   type: 3,
                   isToday: todayStr == widget.race.date.replaceAll("0", ""),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RaceRsultsPage(widget.race.round)),
+                    );
+                  },
                 ),
               ],
             )
