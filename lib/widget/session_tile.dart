@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import "package:flutter/material.dart";
 
 import "../common/colors.dart";
@@ -6,6 +8,7 @@ class SessionListTile extends StatelessWidget {
   String title;
   String subTitle;
   bool isToday;
+  bool nextPage;
   int type; // 0 : practice - 1 qualify - 2 sprint - 3 race:
   void Function()? onTap;
   SessionListTile({
@@ -13,6 +16,7 @@ class SessionListTile extends StatelessWidget {
     required this.subTitle,
     required this.type,
     this.onTap,
+    this.nextPage = true,
     this.isToday = false,
     super.key,
   });
@@ -70,10 +74,12 @@ class SessionListTile extends StatelessWidget {
                     : Icons.flag,
         color: Colors.white,
       ),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-        color: Colors.white,
-      ),
+      trailing: nextPage
+          ? const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            )
+          : const SizedBox.shrink(),
       onTap: onTap,
     );
   }

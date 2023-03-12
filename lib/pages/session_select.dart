@@ -83,6 +83,7 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                   title: "Prove Libere 1",
                   subTitle: widget.race.sessionTimes!.practice1,
                   type: 0,
+                  nextPage: false,
                   isToday: todayStr ==
                       widget.race.sessionTimes!.practice1
                           .substring(0, 10)
@@ -92,20 +93,23 @@ class _SessionSelectPageState extends State<SessionSelectPage> {
                   title: "Prove Libere 2",
                   subTitle: widget.race.sessionTimes!.practice2,
                   type: 0,
+                  nextPage: false,
                   isToday: todayStr ==
                       widget.race.sessionTimes!.practice2
                           .substring(0, 10)
                           .replaceAll("0", ""),
                 ),
-                SessionListTile(
+                widget.race.haveSprint == false
+                    ? SessionListTile(
                   title: "Prove Libere 3",
                   subTitle: widget.race.sessionTimes!.practice3,
                   type: 0,
+                  nextPage: false,
                   isToday: todayStr ==
                       widget.race.sessionTimes!.practice3
                           .substring(0, 10)
                           .replaceAll("0", ""),
-                ),
+                ) : const SizedBox.shrink(),
                 SessionListTile(
                   title: "Qualifiche",
                   subTitle: widget.race.sessionTimes!.qualify,
