@@ -19,7 +19,7 @@ class _TeamOverviewPageState extends State<TeamOverviewPage> {
       appBar: AppBar(
         backgroundColor: AppColor.background,
         title: const Text(
-          "Classifica Costruttori",
+          "Overview Team",
           style: TextStyle(fontFamily: "F1Bold"),
         ),
         centerTitle: true,
