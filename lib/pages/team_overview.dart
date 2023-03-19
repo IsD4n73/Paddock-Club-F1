@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
+import "package:paddock_club/widget/overview_tile.dart";
 
 import "../common/bottom_bar.dart";
 import "../common/colors.dart";
-
+import "../common/team_proprietis.dart";
 
 class TeamOverviewPage extends StatefulWidget {
   const TeamOverviewPage({super.key});
@@ -25,7 +26,13 @@ class _TeamOverviewPageState extends State<TeamOverviewPage> {
         centerTitle: true,
       ),
       bottomNavigationBar: getBottomBar(3, context),
-      body: Placeholder(),
+      body: ListView.builder(
+        itemCount: listTeam.length,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return OverviewTile(listTeam[index]);
+        },
+      ),
     );
   }
 }
