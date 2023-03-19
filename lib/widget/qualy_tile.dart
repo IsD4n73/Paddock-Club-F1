@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import "package:flutter/material.dart";
 import "package:paddock_club/common/colors.dart";
 import "package:paddock_club/model/result_model.dart";

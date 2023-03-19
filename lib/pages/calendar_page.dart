@@ -5,7 +5,6 @@ import "package:paddock_club/controller/calendar_api.dart";
 import "package:paddock_club/model/calendar_model.dart";
 import "package:paddock_club/widget/calendar_list.dart";
 import "package:paddock_club/widget/next_race.dart";
-import "package:salomon_bottom_bar/salomon_bottom_bar.dart";
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});

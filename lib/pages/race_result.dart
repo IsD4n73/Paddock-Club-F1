@@ -5,6 +5,7 @@ import "package:paddock_club/model/result_model.dart";
 import "../common/colors.dart";
 import "../widget/standing_tile.dart";
 
+// ignore: must_be_immutable
 class RaceRsultsPage extends StatefulWidget {
   String idRace;
   RaceRsultsPage(this.idRace, {super.key});
