@@ -47,7 +47,11 @@ Logo
 
 | Session Result  | Team Overview |
 | ------------- | ------------- |
-| ![Result](screenshot/Result.jpg)  | ![Teams](screenshot/Teams.jpg)  |
+| ![Result](screenshot/Result.jpg)  | ![Teams](screenshot/Teams.png)  |
+
+| Constructor Standing  | Driver Standing |
+| ------------- | ------------- |
+| ![Constructor](screenshot/Constructor.png)  | ![Driver](screenshot/Standing.png)  |
 
 # DEV
 ### Dependency
