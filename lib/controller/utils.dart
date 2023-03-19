@@ -18,8 +18,8 @@ Color? getTeamColor(String team) {
       return TeamColor.redbull;
     case "Aston Martin":
       return TeamColor.astonMartin;
-    case "value":
-      return TeamColor.haas;
+    case "McLaren":
+      return TeamColor.mclaren;
     case "Ferrari":
       return TeamColor.ferrari;
     case "Mercedes":
