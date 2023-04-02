@@ -1,4 +1,5 @@
 class RaceRsultModel {
+  String driverId;
   String position;
   String points;
   String driverCode;
@@ -7,6 +8,7 @@ class RaceRsultModel {
   bool isFastest;
 
   RaceRsultModel({
+    required this.driverId,
     required this.position,
     required this.points,
     required this.driverCode,

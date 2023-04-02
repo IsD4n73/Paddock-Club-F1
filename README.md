@@ -10,12 +10,10 @@ Formula 1 Paddock Club: the new companion app for F1 fans with a lot of features
 - Qualifying Results
 - Sprint Results
 - Race Results
-
-# TO-DO
-
-- [ ] Drivers Standing
-- [ ] Constructors Standing
-- [ ] Teams Overview
+- Race Pitstops 
+- Drivers Standing
+- Constructors Standing
+- Teams Overview 
 
 ---
 
@@ -60,6 +58,7 @@ country_icons: ^2.0.2
 another_flutter_splash_screen: ^1.1.4
 http: ^0.13.5
 salomon_bottom_bar: ^3.3.1
+bottom_sheet: ^3.1.2
 ```
 
 ### API
