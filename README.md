@@ -53,6 +53,10 @@ Logo
 | ------------- | ------------- |
 | ![Constructor](screenshot/Constructor.png)  | ![Driver](screenshot/Standing.png)  |
 
+| Pitstop  | Cooming soon |
+| ------------- | ------------- |
+| ![Pitstop](screenshot/Pitstop.png)  | Cooming soon...  |
+
 # DEV
 ### Dependency
 ```yaml
