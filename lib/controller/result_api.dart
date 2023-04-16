@@ -102,6 +102,7 @@ Future<List<RaceRsultModel>> getSprintResult(String idRace) async {
     RaceRsultModel driver;
 
     driver = RaceRsultModel(
+      driverId: race["Driver"]["driverId"], 
       position: race["position"],
       points: race["points"],
       driverCode: race["Driver"]["code"],

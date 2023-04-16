@@ -47,7 +47,7 @@ class _RaceRsultsPageState extends State<RaceRsultsPage> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: StandingTileShort(results[index]),
+                  child: StandingTileShort(results[index], widget.idRace),
                 );
               },
             )
