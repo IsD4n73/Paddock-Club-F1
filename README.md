@@ -64,6 +64,7 @@ another_flutter_splash_screen: ^1.1.4
 http: ^0.13.5
 salomon_bottom_bar: ^3.3.1
 bottom_sheet: ^3.1.2
+flutter_animate: ^4.1.1+1
 ```
 
 ### API

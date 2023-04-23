@@ -6,6 +6,9 @@ import "package:paddock_club/model/calendar_model.dart";
 import "package:paddock_club/widget/calendar_list.dart";
 import "package:paddock_club/widget/next_race.dart";
 
+import "../widget/placeholders/card.dart";
+import "../widget/placeholders/list_tiles.dart";
+
 class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
 
@@ -14,16 +17,9 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
-  List<RaceScheduleModel> races = [];
+  late Future<List<RaceScheduleModel>> races;
   late DateTime currentDate;
-  late RaceScheduleModel nextRace = RaceScheduleModel(
-    raceName: "Nessuna Gara",
-    country: "it",
-    date: "N/D",
-    time: "",
-    round: "",
-    circuit: "",
-  );
+  late Future<RaceScheduleModel> nextRace;
 
   @override
   void initState() {
@@ -31,19 +27,11 @@ class _CalendarPageState extends State<CalendarPage> {
 
     currentDate = DateTime.now();
 
-    getNextRace(currentDate.year).then((value) {
-      setState(() {
-        nextRace = value;
-      });
+    setState(() {
+      nextRace = getNextRace(currentDate.year);
     });
 
-    getRaceSchedule(currentDate.year).then((value) {
-      setState(() {
-        races = value;
-      });
-    });
-
-    setState(() {});
+    races = getRaceSchedule(currentDate.year);
   }
 
   @override
@@ -63,36 +51,53 @@ class _CalendarPageState extends State<CalendarPage> {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            NextRaceCard(nextRace),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: races.length,
-              itemBuilder: (context, index) {
-                if (races.isEmpty) {
-                  return const Center(
-                    child: Text(
-                      "Nessuna Gara trovata :(",
-                      style: TextStyle(
-                        fontFamily: "F1Bold",
-                        color: Colors.white,
-                      ),
-                    ),
-                  );
-                } else {
-                  bool isToday = false;
-                  String dateToday =
-                      "${currentDate.year}-${currentDate.month}-${currentDate.day}";
-                  dateToday = dateToday.replaceAll("0", "");
-
-                  String dateToCheck = races[index].date.replaceAll("0", "");
-
-                  if (dateToday == dateToCheck) {
-                    isToday = true;
-                  }
-
-                  return CalendarListTile(races[index], isToday);
+            FutureBuilder(
+              future: nextRace,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return NextRaceCard(snapshot.data!);
                 }
+                return const CardShimmer();
+              },
+            ),
+            FutureBuilder(
+              future: races,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      if (snapshot.data!.isEmpty) {
+                        return const Center(
+                          child: Text(
+                            "Nessuna Gara trovata :(",
+                            style: TextStyle(
+                              fontFamily: "F1Bold",
+                              color: Colors.white,
+                            ),
+                          ),
+                        );
+                      } else {
+                        bool isToday = false;
+                        String dateToday =
+                            "${currentDate.year}-${currentDate.month}-${currentDate.day}";
+                        dateToday = dateToday.replaceAll("0", "");
+
+                        String dateToCheck =
+                            snapshot.data![index].date.replaceAll("0", "");
+
+                        if (dateToday == dateToCheck) {
+                          isToday = true;
+                        }
+
+                        return CalendarListTile(snapshot.data![index], isToday);
+                      }
+                    },
+                  );
+                }
+                return const ListTilesShimmer();
               },
             ),
           ],
