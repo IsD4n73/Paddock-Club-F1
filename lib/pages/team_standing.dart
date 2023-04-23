@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:paddock_club/controller/standing_api.dart";
+import "package:paddock_club/widget/placeholders/list_tiles.dart";
 
 import "../common/bottom_bar.dart";
 import "../common/colors.dart";
@@ -14,98 +15,101 @@ class TeamStandingPage extends StatefulWidget {
 }
 
 class _TeamStandingPageState extends State<TeamStandingPage> {
-  List<TeamStandModel> teams = [];
+  late Future<List<TeamStandModel>> teams;
 
   @override
   void initState() {
     super.initState();
 
-    getTeamStanding().then((value) {
-      setState(() {
-        teams = value;
-      });
-    });
+    teams = getTeamStanding();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.background,
-      appBar: AppBar(
         backgroundColor: AppColor.background,
-        title: const Text(
-          "Classifica Costruttori",
-          style: TextStyle(fontFamily: "F1Bold"),
+        appBar: AppBar(
+          backgroundColor: AppColor.background,
+          title: const Text(
+            "Classifica Costruttori",
+            style: TextStyle(fontFamily: "F1Bold"),
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      bottomNavigationBar: getBottomBar(2, context),
-      body: teams.isNotEmpty
-          ? ListView.builder(
-              itemCount: teams.length,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(
-                            width: 4,
-                            color: getTeamColor(teams[index].name)!),
-                      ),
-                    ),
-                    child: ListTile(
-                      tileColor: AppColor.secondary,
-                      title: Text(
-                        teams[index].name,
-                        style: const TextStyle(
-                          fontFamily: "F1Bold",
-                          color: Colors.white,
-                        ),
-                      ),
-                      subtitle: Text(
-                        "Vittorie: ${teams[index].wins}",
-                        style: const TextStyle(
-                          fontFamily: "F1",
-                          color: Colors.white,
-                        ),
-                      ),
-                      leading: CircleAvatar(
-                        backgroundColor:
-                            getTeamColor(teams[index].name),
+        bottomNavigationBar: getBottomBar(2, context),
+        body: FutureBuilder(
+          future: teams,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return snapshot.data!.isNotEmpty
+                  ? ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border(
+                                left: BorderSide(
+                                    width: 4,
+                                    color: getTeamColor(snapshot.data![index].name)!),
+                              ),
+                            ),
+                            child: ListTile(
+                              tileColor: AppColor.secondary,
+                              title: Text(
+                                snapshot.data![index].name,
+                                style: const TextStyle(
+                                  fontFamily: "F1Bold",
+                                  color: Colors.white,
+                                ),
+                              ),
+                              subtitle: Text(
+                                "Vittorie: ${snapshot.data![index].wins}",
+                                style: const TextStyle(
+                                  fontFamily: "F1",
+                                  color: Colors.white,
+                                ),
+                              ),
+                              leading: CircleAvatar(
+                                backgroundColor:
+                                    getTeamColor(snapshot.data![index].name),
+                                child: Text(
+                                  snapshot.data![index].position,
+                                  style: const TextStyle(
+                                    fontFamily: "F1Bold",
+                                  ),
+                                ),
+                              ),
+                              trailing: Text(
+                                snapshot.data![index].points,
+                                style: const TextStyle(
+                                  fontFamily: "F1Bold",
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  : const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(8),
                         child: Text(
-                          teams[index].position,
-                          style: const TextStyle(
+                          "Non sono presenti dati sui costruttori...",
+                          style: TextStyle(
                             fontFamily: "F1Bold",
+                            color: Colors.white,
+                            fontSize: 20,
                           ),
                         ),
                       ),
-                      trailing: Text(
-                        teams[index].points,
-                        style: const TextStyle(
-                          fontFamily: "F1Bold",
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            )
-          : const Center(
-              child: Padding(
-                padding: EdgeInsets.all(8),
-                child: Text(
-                  "Non sono presenti dati sui costruttori...",
-                  style: TextStyle(
-                    fontFamily: "F1Bold",
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-    );
+                    );
+            }
+            return const ListTilesShimmer();
+          },
+        ));
   }
 }

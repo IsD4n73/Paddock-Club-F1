@@ -2,7 +2,6 @@ import "package:flutter/material.dart";
 import "package:flutter_animate/flutter_animate.dart";
 
 import "../../common/colors.dart";
-import "../calendar_list.dart";
 
 class ListTilesShimmer extends StatelessWidget {
   const ListTilesShimmer({super.key});
