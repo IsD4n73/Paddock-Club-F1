@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import "package:paddock_club/controller/result_api.dart";
 import "package:paddock_club/model/result_model.dart";
 import "package:paddock_club/widget/placeholders/list_tiles.dart";
+import "package:paddock_club/widget/placeholders/no_data.dart";
 
 import "../common/colors.dart";
 import "../widget/standing_tile.dart";
@@ -52,19 +53,7 @@ class _RaceRsultsPageState extends State<RaceRsultsPage> {
                       );
                     },
                   )
-                : const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        "Non sono presenti dati sulla sessione...",
-                        style: TextStyle(
-                          fontFamily: "F1Bold",
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  );
+                : const NoDataSession();
           }
           return const ListTilesShimmer();
         },

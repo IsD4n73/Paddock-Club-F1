@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:paddock_club/controller/standing_api.dart";
 import "package:paddock_club/widget/placeholders/list_tiles.dart";
+import "package:paddock_club/widget/placeholders/no_data.dart";
 
 import "../common/bottom_bar.dart";
 import "../common/colors.dart";
@@ -94,19 +95,7 @@ class _TeamStandingPageState extends State<TeamStandingPage> {
                         );
                       },
                     )
-                  : const Center(
-                      child: Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text(
-                          "Non sono presenti dati sui costruttori...",
-                          style: TextStyle(
-                            fontFamily: "F1Bold",
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    );
+                  : const NoDataConstructor();
             }
             return const ListTilesShimmer();
           },

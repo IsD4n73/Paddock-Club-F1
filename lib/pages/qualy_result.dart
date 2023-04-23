@@ -4,6 +4,7 @@ import "package:flutter/material.dart";
 import "package:paddock_club/common/colors.dart";
 import "package:paddock_club/controller/result_api.dart";
 import "package:paddock_club/widget/placeholders/list_tiles.dart";
+import "package:paddock_club/widget/placeholders/no_data.dart";
 import "package:paddock_club/widget/qualy_tile.dart";
 
 import "../model/result_model.dart";
@@ -53,19 +54,7 @@ class _QualyResultPageState extends State<QualyResultPage> {
                       );
                     },
                   )
-                : const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(8),
-                      child: Text(
-                        "Non sono presenti dati sulla sessione...",
-                        style: TextStyle(
-                          fontFamily: "F1Bold",
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                  );
+                : const NoDataSession();
           }
           return const ListTilesShimmer();
         },

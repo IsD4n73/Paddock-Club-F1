@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:paddock_club/controller/standing_api.dart";
 import "package:paddock_club/controller/utils.dart";
+import "package:paddock_club/widget/placeholders/no_data.dart";
 
 import "../common/bottom_bar.dart";
 import "../common/colors.dart";
@@ -95,19 +96,7 @@ class _DriverStandingPageState extends State<DriverStandingPage> {
                         );
                       },
                     )
-                  : const Center(
-                      child: Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text(
-                          "Non sono presenti dati sui piloti...",
-                          style: TextStyle(
-                            fontFamily: "F1Bold",
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ),
-                    );
+                  : const NoDataPilot();
             }
             return const ListTilesShimmer();
           },

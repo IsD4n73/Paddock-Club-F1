@@ -21,7 +21,6 @@ class StandingTileShort extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
           onTap: () async {
-            // todo pit stop
             await getPitstopDriver(driver.driverId, idRace).then((value) => showPitstop(context, value));
           },
           child: Row(
