@@ -32,7 +32,7 @@ jobs:
 
       - run: flutter build apk --split-per-abi --release
 
-      - run: flutter build web --base-href "https://isd4n73.github.io/Paddock-Club-F1/" 
+      - run: flutter build web --base-href "/Paddock-Club-F1/" 
 
       
 
