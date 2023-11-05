@@ -18,14 +18,14 @@ Future<List<RaceScheduleModel>> getRaceSchedule(int year) async {
 
     sessionTime = RaceTimeModel(
       practice1:
-          '${race["FirstPractice"]["date"]} - ${race["FirstPractice"]["time"]}',
+          '${race["FirstPractice"]["date"]} - ${race["FirstPractice"]["time"].replaceAll(":00Z", "")}',
       practice2:
-          '${race["SecondPractice"]["date"]} - ${race["SecondPractice"]["time"]}',
+          '${race["SecondPractice"]["date"]} - ${race["SecondPractice"]["time"].replaceAll(":00Z", "")}',
       practice3:
-          race.containsKey("ThirdPractice") ? '${race["ThirdPractice"]["date"]} - ${race["ThirdPractice"]["time"]}' : "N/D",
-      qualify: '${race["Qualifying"]["date"]} - ${race["Qualifying"]["time"]}',
+          race.containsKey("ThirdPractice") ? '${race["ThirdPractice"]["date"]} - ${race["ThirdPractice"]["time"].replaceAll(":00Z", "")}' : "N/D",
+      qualify: '${race["Qualifying"]["date"]} - ${race["Qualifying"]["time"].replaceAll(":00Z", "")}',
       sprint: race.containsKey("Sprint")
-          ? '${race["Sprint"]["date"]} - ${race["Sprint"]["time"]}'
+          ? '${race["Sprint"]["date"]} - ${race["Sprint"]["time"].replaceAll(":00Z", "")}'
           : null,
     );
 
@@ -34,7 +34,7 @@ Future<List<RaceScheduleModel>> getRaceSchedule(int year) async {
         raceName: race["raceName"],
         country: race["Circuit"]["Location"]["country"],
         date: race["date"],
-        time: race["time"],
+        time: race["time"].replaceAll(":00Z", ""),
         round: race["round"],
         circuit: race["Circuit"]["circuitId"],
         haveSprint: race.containsKey("Sprint"),
@@ -69,7 +69,7 @@ Future<RaceScheduleModel> getNextRace(int year) async {
         raceName: race["raceName"],
         country: race["Circuit"]["Location"]["country"],
         date: race["date"],
-        time: race["time"],
+        time: race["time"].replaceAll(":00Z", ""),
         round: race["round"],
         circuit: race["Circuit"]["circuitId"],
         haveSprint: race.containsKey("Sprint"),
