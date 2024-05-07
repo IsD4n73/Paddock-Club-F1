@@ -8,8 +8,15 @@ String getFlagFromName(String country) {
   if (locale == "sp") locale = "es";
   if (locale == "ja") locale = "jp";
   if (locale == "uk") locale = "gb-nir";
+  if (locale == "ch") locale = "cn";
+  if (locale == "mo") locale = "mc";
+  if (locale == "ne") locale = "nl";
+  if (locale == "ba") locale = "bh";
+  if (locale == "si") locale = "sg";
+  if (locale == "me") locale = "mx";
+  if (locale == "ua") locale = "ae";
 
-  return "icons/flags/png/$locale.png";
+  return "icons/flags/png250px/$locale.png";
 }
 
 Color? getTeamColor(String team) {
@@ -24,17 +31,17 @@ Color? getTeamColor(String team) {
       return TeamColor.ferrari;
     case "Mercedes":
       return TeamColor.mercedes;
-    case "Alfa Romeo":
-      return TeamColor.alfaRomeo;
+    case "Sauber":
+      return TeamColor.sauber;
     case "Alpine F1 Team":
       return TeamColor.alpine;
     case "Williams":
       return TeamColor.williams;
-    case "AlphaTauri":
-      return TeamColor.alphaTauri;
+    case "RB F1 Team":
+      return TeamColor.rbVisaCash;
     case "Haas F1 Team":
       return TeamColor.haas;
-    
+
     default:
       return Colors.amber;
   }

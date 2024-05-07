@@ -22,7 +22,7 @@ Widget? getBottomBar(int index, BuildContext context) {
           );
           break;
         case 1:
-        Navigator.pushReplacement(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const DriverStandingPage(),
@@ -30,7 +30,7 @@ Widget? getBottomBar(int index, BuildContext context) {
           );
           break;
         case 2:
-        Navigator.pushReplacement(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const TeamStandingPage(),
@@ -38,7 +38,7 @@ Widget? getBottomBar(int index, BuildContext context) {
           );
           break;
         case 3:
-        Navigator.pushReplacement(
+          Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const TeamOverviewPage(),
@@ -77,11 +77,11 @@ Widget? getBottomBar(int index, BuildContext context) {
       ),
 
       /// Teams Overview
-      SalomonBottomBarItem(
+      /*SalomonBottomBarItem(
         icon: const Icon(Icons.broadcast_on_personal),
         title: const Text("Overview Team"),
         selectedColor: AppColor.details,
-      ),
+      ),*/
     ],
   );
 }

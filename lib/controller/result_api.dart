@@ -32,7 +32,7 @@ Future<List<RaceRsultModel>> getRaceResult(String idRace) async {
     RaceRsultModel driver;
 
     driver = RaceRsultModel(
-      driverId: race["Driver"]["driverId"], 
+      driverId: race["Driver"]["driverId"],
       position: race["position"],
       points: race["points"],
       driverCode: race["Driver"]["code"],
@@ -80,20 +80,19 @@ Future<List<QualyRsultModel>> getQualyRsult(String idRace) async {
   return results;
 }
 
-
-
 Future<List<RaceRsultModel>> getSprintResult(String idRace) async {
-  var response = await http.get(
-      Uri.parse('$calendarApi${DateTime.now().year}/$idRace/sprint.json'));
+  var response = await http
+      .get(Uri.parse('$calendarApi${DateTime.now().year}/$idRace/sprint.json'));
 
-
+  print(response.body);
 
   List<RaceRsultModel> results = [];
 
   var responseJson;
   try {
     responseJson = jsonDecode(response.body);
-    responseJson = responseJson["MRData"]["RaceTable"]["Races"][0]["Results"];
+    responseJson =
+        responseJson["MRData"]["RaceTable"]["Races"][0]["SprintResults"];
   } on RangeError {
     return results;
   }
@@ -102,7 +101,7 @@ Future<List<RaceRsultModel>> getSprintResult(String idRace) async {
     RaceRsultModel driver;
 
     driver = RaceRsultModel(
-      driverId: race["Driver"]["driverId"], 
+      driverId: race["Driver"]["driverId"],
       position: race["position"],
       points: race["points"],
       driverCode: race["Driver"]["code"],

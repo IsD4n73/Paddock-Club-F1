@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'F1 Paddock',
       theme: ThemeData(
-
         primarySwatch: Colors.red,
+        useMaterial3: false,
       ),
       home: FlutterSplashScreen.gif(
-          backgroundColor: const Color.fromARGB(255, 219, 239, 251),
-          gifHeight: 300, 
-          gifWidth: 400, 
-          gifPath: 'assets/splash.gif',
-          defaultNextScreen: const CalendarPage(),
-          duration: const Duration(seconds: 5),
-        ),
+        backgroundColor: const Color.fromARGB(255, 219, 239, 251),
+        gifHeight: 300,
+        gifWidth: 400,
+        gifPath: 'assets/splash.gif',
+        nextScreen: const CalendarPage(),
+        duration: const Duration(seconds: 5),
+      ),
     );
   }
 }
